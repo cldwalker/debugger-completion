@@ -1,0 +1,69 @@
+== Description
+
+Tired of remembering every command and subcommand that comes with ruby-debug? This gem solves this
+and more, providing ruby-debug command and subcommand completion while providing a completion system
+more powerful than irb's, compliments of {bond}[http://github.com/cldwalker/bond].
+
+== Install
+
+Install the gem with:
+
+    sudo gem install ruby-debug-completion
+
+== Setup
+
+Add this after your `require 'ruby-debug'` line:
+
+    require 'ruby-debug-completion'
+
+Or if you like to debug with one-liners:
+
+    require 'ruby-debug-completion'; debugger
+
+== Usage
+
+In a ruby program gone far far astray:
+
+    (rdb:1) [TAB]
+    backtrace  continue   down       exit       info       next       putl       save       step
+    undisplay
+    break      delete     edit       finish     irb        p          quit       set        thread
+    up
+    catch      disable    enable     frame      list       pp         reload     show       tmate
+    var
+    condition  display    eval       help       method     ps         restart    source     trace
+    where
+
+What info does ruby-debug provide?
+
+    (rdb:1) info
+    args                display             global_variables    locals              thread
+    breakpoints         file                instance_variables  program             threads
+    catch               files               line                stack               variables
+ 
+    (rdb: 1) info d[TAB]
+    (rdb: 1) info display
+
+What settings can I change?
+
+    (rdb:1) set 
+    annotate             autolist             forcestep            linetrace            width
+    args                 basename             fullpath             linetrace+           
+    autoeval             callstyle            history              listsize             
+    autoirb              debuggertesting      keep-frame-bindings  trace                
+
+    (rdb:1) set d[TAB]
+    (rdb:1) set debuggertesting
+
+Please, can I just quit quickly without a prompt?
+    (rdb:1) q [TAB]
+    (rdb:1) q unconditionally
+
+== Limitations
+
+This gem doesn't have ruby-debug as a dependency since ruby-debug is split up across two gems
+depending on the ruby version. Use whichever ruby-debug gem you need with this gem.
+
+== Bugs/Issues
+
+Please report them {on github}[http://github.com/cldwalker/ruby-debug-completion/issues].
