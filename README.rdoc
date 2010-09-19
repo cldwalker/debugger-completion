@@ -25,14 +25,11 @@ Or if you like to debug with one-liners:
 In a ruby program gone far far astray:
 
     (rdb:1) [TAB]
-    backtrace  continue   down       exit       info       next       putl       save       step
-    undisplay
-    break      delete     edit       finish     irb        p          quit       set        thread
-    up
-    catch      disable    enable     frame      list       pp         reload     show       tmate
-    var
-    condition  display    eval       help       method     ps         restart    source     trace
-    where
+    backtrace  delete     enable     help       next       quit       show       trace
+    break      disable    eval       info       p          reload     source     undisplay
+    catch      display    exit       irb        pp         restart    step       up
+    condition  down       finish     list       ps         save       thread     var
+    continue   edit       frame      method     putl       set        tmate      where
 
 What info does ruby-debug provide?
 
@@ -56,6 +53,7 @@ What settings can I change?
     (rdb:1) set debuggertesting
 
 Please, can I just quit quickly without a prompt?
+
     (rdb:1) q [TAB]
     (rdb:1) q unconditionally
 
