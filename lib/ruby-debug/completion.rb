@@ -5,6 +5,14 @@ module Debugger
   module Completion
     extend self
     VERSION = '0.1.0'
+    COMMANDS = [ "backtrace", "break", "catch", "condition", "continue",
+      "delete", "disable", "display", "down", "edit", "enable", "eval", "exit",
+        "finish", "frame", "help", "info", "irb", "list", "method", "next",
+        "p", "pp", "ps", "putl", "quit", "reload", "restart", "save", "set",
+        "show", "source", "step", "thread", "tmate", "trace", "undisplay",
+        "up", "var", "where"
+    ]
+    COMMANDS << ['jump'] if RUBY_VERSION >= '1.9'
 
     def start
       Bond.start(:default_mission=>lambda {|e| Debugger::Completion.commands }) do
@@ -27,14 +35,7 @@ module Debugger
       end
     end
 
-    def commands
-      ["backtrace", "break", "catch", "condition", "continue", "delete",
-        "disable", "display", "down", "edit", "enable", "eval", "exit",
-        "finish", "frame", "help", "info", "irb", "list", "method", "next",
-        "p", "pp", "ps", "putl", "quit", "reload", "restart", "save", "set",
-        "show", "source", "step", "thread", "tmate", "trace", "undisplay",
-        "up", "var", "where"]
-    end
+    def commands; COMMANDS; end
   end
 end
 
