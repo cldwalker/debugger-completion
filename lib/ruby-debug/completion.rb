@@ -51,8 +51,8 @@ module Debugger
     end
 
     def debugger_eval(string)
-      bdg = (cmd = first_object(Debugger::Command)) ? cmd.send(:get_binding) : TOPLEVEL_BINDING
-      eval string, bdg
+      bdg = (cmd = first_object(Debugger::Command)) && cmd.send(:get_binding) rescue nil
+      eval string, bdg || TOPLEVEL_BINDING
     end
 
     def first_object(klass)
