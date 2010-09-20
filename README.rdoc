@@ -98,6 +98,10 @@ Please, can I just quit quickly without a prompt?
 This gem doesn't have ruby-debug as a dependency since ruby-debug is split across two gems
 (ruby-debug and ruby-debug19), dependent on ruby versions. This gem will work with either one.
 
+== Todo
+
+* Completion of local variable methods
+
 == Bugs/Issues
 
 Please report them {on github}[http://github.com/cldwalker/ruby-debug-completion/issues].
