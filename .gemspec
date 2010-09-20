@@ -12,6 +12,7 @@ Gem::Specification.new do |s|
   s.description =  "DESCRIPTION"
   s.required_rubygems_version = ">= 1.3.6"
   s.rubyforge_project = 'tagaholic'
+  s.add_dependency 'bond', '>= 0.2.2'
   s.files = Dir.glob(%w[{lib,test}/**/*.rb bin/* [A-Z]*.{txt,rdoc} ext/**/*.{rb,c} **/deps.rip]) + %w{Rakefile .gemspec}
   s.extra_rdoc_files = ["README.rdoc", "LICENSE.txt"]
   s.license = 'MIT'
