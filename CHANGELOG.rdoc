@@ -1,2 +1,5 @@
+== 0.1.1
+** Rescue unexpected errors from Debugger::Command#get_binding
+
 == 0.1.0
 ** Initial release!

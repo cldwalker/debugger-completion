@@ -11,7 +11,11 @@ Install the gem with:
 
 == Setup
 
-Add this after your `require 'ruby-debug'` line:
+To have ruby-debug automatically use this gem:
+
+    echo "eval require 'ruby-debug/completion'" >> ~/.rdebugrc
+
+To require in a script or application, place after your `require 'ruby-debug'` line:
 
     require 'ruby-debug/completion'
 
