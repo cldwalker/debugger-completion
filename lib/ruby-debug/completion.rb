@@ -40,10 +40,23 @@ module Debugger
     def default_action
       completions = commands + ['completion_toggle']
       if @irb_completion
-        eval_string = "methods | private_methods | local_variables | self.class.constants"
-        completions += Bond::Mission.current_eval(eval_string) | Bond::DefaultMission::ReservedWords
+        eval_string = "methods | private_methods | local_variables | " +
+          "self.class.constants | instance_variables"
+        completions += debugger_eval(eval_string) | Object.constants |
+          Bond::DefaultMission::ReservedWords
+      else
+        completions += debugger_eval("local_variables | instance_variables")
       end
       completions
+    end
+
+    def debugger_eval(string)
+      bdg = (cmd = first_object(Debugger::Command)) ? cmd.send(:get_binding) : TOPLEVEL_BINDING
+      eval string, bdg
+    end
+
+    def first_object(klass)
+      ObjectSpace.each_object(klass) {|e| return e }
     end
 
     def toggle_irb_completion
