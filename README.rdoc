@@ -1,7 +1,6 @@
 == Description
 
-Tired of remembering every command and subcommand that comes with ruby-debug? This gem solves this
-and more, providing ruby-debug command and subcommand completion while providing a completion system
+Provides ruby-debug command and subcommand completion with a completion system
 more powerful than irb's, compliments of {bond}[http://github.com/cldwalker/bond].
 
 == Install
@@ -14,11 +13,15 @@ Install the gem with:
 
 Add this after your `require 'ruby-debug'` line:
 
-    require 'ruby-debug-completion'
+    require 'ruby-debug/completion'
 
 Or if you like to debug with one-liners:
 
-    require 'ruby-debug-completion'; debugger
+    require 'ruby-debug/completion'; debugger
+
+Or if using rdebug:
+
+    rdebug -r ruby-debug/completion FILE
 
 == Usage
 
@@ -33,7 +36,7 @@ In a ruby program gone far far astray:
 
 What info does ruby-debug provide?
 
-    (rdb:1) info
+    (rdb:1) info [TAB]
     args                display             global_variables    locals              thread
     breakpoints         file                instance_variables  program             threads
     catch               files               line                stack               variables
@@ -43,7 +46,7 @@ What info does ruby-debug provide?
 
 What settings can I change?
 
-    (rdb:1) set 
+    (rdb:1) set [TAB]
     annotate             autolist             forcestep            linetrace            width
     args                 basename             fullpath             linetrace+           
     autoeval             callstyle            history              listsize             
@@ -52,6 +55,36 @@ What settings can I change?
     (rdb:1) set d[TAB]
     (rdb:1) set debuggertesting
 
+Since I have autoeval on, can I autocomplete as if I were in irb?
+
+    (rdb:1) com[TAB]
+    (rdb:1) completion_toggle
+
+    (rdb:1) [TAB]
+    Display all 347 possibilities? (y or n)
+
+    (rdb:1) De[TAB]
+    (rdb:1) Debugger
+    (rdb:1) Debugger.[TAB]
+    Display all 137 possibilities? (y or n)
+
+    (rdb:1) require 'ab[TAB]
+    (rdb:1) require 'abbrev.rb'
+
+Huh? Argument autocompletion?
+See {bond}[http://github.com/cldwalker/bond] for all that you can autocomplete.
+
+Can I go back to basic ruby-debug completion?
+
+    # Invoke completion_toggle again
+    (rdb:1)  ct     # alias for completion_toggle
+    (rdb:1) [TAB]
+    backtrace  delete     enable     help       next       quit       show       trace
+    break      disable    eval       info       p          reload     source     undisplay
+    catch      display    exit       irb        pp         restart    step       up
+    condition  down       finish     list       ps         save       thread     var
+    continue   edit       frame      method     putl       set        tmate      where
+
 Please, can I just quit quickly without a prompt?
 
     (rdb:1) q [TAB]
@@ -59,8 +92,8 @@ Please, can I just quit quickly without a prompt?
 
 == Limitations
 
-This gem doesn't have ruby-debug as a dependency since ruby-debug is split up across two gems
-depending on the ruby version. Use whichever ruby-debug gem you need with this gem.
+This gem doesn't have ruby-debug as a dependency since ruby-debug is split across two gems
+(ruby-debug and ruby-debug19), dependent on ruby versions. This gem will work with either one.
 
 == Bugs/Issues
 
