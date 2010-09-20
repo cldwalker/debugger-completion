@@ -34,6 +34,9 @@ In a ruby program gone far far astray:
     condition  down       finish     list       ps         save       thread     var
     continue   edit       frame      method     putl       set        tmate      where
 
+Note: This default completion also autocompletes instance variables and local variables in the
+current debugger binding.
+
 What info does ruby-debug provide?
 
     (rdb:1) info [TAB]
