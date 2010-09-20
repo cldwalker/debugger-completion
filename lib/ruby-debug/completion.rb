@@ -59,5 +59,5 @@ module Debugger
   end
 end
 
+Object.send :include, Debugger::Completion::Command
 Debugger::Completion.start
-extend Debugger::Completion::Command
