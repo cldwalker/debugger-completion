@@ -38,7 +38,7 @@ module Debugger
     def commands; COMMANDS; end
 
     def default_action
-      completions = commands
+      completions = commands + ['completion_toggle']
       if @irb_completion
         eval_string = "methods | private_methods | local_variables | self.class.constants"
         completions += Bond::Mission.current_eval(eval_string) | Bond::DefaultMission::ReservedWords
@@ -49,7 +49,15 @@ module Debugger
     def toggle_irb_completion
       @irb_completion = !@irb_completion
     end
+
+    module Command
+      def completion_toggle
+        Completion.toggle_irb_completion
+      end
+      alias_method :ct, :completion_toggle
+    end
   end
 end
 
 Debugger::Completion.start
+extend Debugger::Completion::Command
