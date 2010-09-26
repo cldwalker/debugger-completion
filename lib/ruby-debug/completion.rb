@@ -48,7 +48,7 @@ module Debugger
       else
         completions += debugger_eval("local_variables | instance_variables")
       end
-      completions
+      completions - ['__dbg_verbose_save']
     end
 
     def debugger_eval(string)
