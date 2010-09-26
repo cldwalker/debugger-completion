@@ -15,7 +15,8 @@ module Debugger
     COMMANDS << ['jump'] if RUBY_VERSION >= '1.9'
 
     def start
-      Bond.start(:default_mission=>lambda {|e| Debugger::Completion.default_action }) do
+      Bond.start(:eval_binding=>lambda { Debugger::Completion.current_binding },
+                 :default_mission=>lambda {|e| Debugger::Completion.default_action }) do
         complete(:methods=>%w{catch cat}) { objects_of(Class).select {|e| e < StandardError } }
         complete(:methods=>%w{disable enable}) { %w{breakpoints display} }
         complete(:methods=>['help', 'h']) { Debugger::Completion.commands }
@@ -51,12 +52,16 @@ module Debugger
     end
 
     def debugger_eval(string)
-      bdg = (cmd = first_object(Debugger::Command)) && cmd.send(:get_binding) rescue nil
-      eval string, bdg || TOPLEVEL_BINDING
+      eval string, current_binding || TOPLEVEL_BINDING
+    end
+
+    def current_binding
+      (cmd = first_object(Debugger::Command)) && cmd.send(:get_binding) rescue nil
     end
 
     def first_object(klass)
       ObjectSpace.each_object(klass) {|e| return e }
+      nil
     end
 
     def toggle_irb_completion
