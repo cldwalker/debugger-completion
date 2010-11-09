@@ -15,7 +15,7 @@ module Debugger
     COMMANDS << ['jump'] if RUBY_VERSION >= '1.9'
 
     def start
-      Bond.start(:eval_binding=>lambda { Debugger::Completion.current_binding },
+      Bond.restart(:eval_binding=>lambda { Debugger::Completion.current_binding },
                  :default_mission=>lambda {|e| Debugger::Completion.default_action }) do
         complete(:methods=>%w{catch cat}) { objects_of(Class).select {|e| e < StandardError } }
         complete(:methods=>%w{disable enable}) { %w{breakpoints display} }

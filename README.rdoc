@@ -27,6 +27,11 @@ Or if using rdebug:
 
     rdebug -r ruby-debug/completion FILE
 
+To start manually in environments with bond completion already setup i.e. irb:
+
+    require 'ruby-debug/completion'
+    Debugger::Completion.start
+
 == Usage
 
 Let's autocomplete instance and local variables of the current binding as well as ruby-debug
