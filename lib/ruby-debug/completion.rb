@@ -68,4 +68,4 @@ module Debugger
 end
 
 Object.send :include, Debugger::Completion::Command
-Debugger::Completion.start
+Debugger::Completion.start unless Bond.started?
