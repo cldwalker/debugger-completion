@@ -1,4 +1,4 @@
-require 'ruby-debug'
+require 'debugger'
 require 'bond'
 
 module Debugger

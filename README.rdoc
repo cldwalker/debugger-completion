@@ -1,47 +1,47 @@
 == Description
 
-Provides ruby-debug command and command arguments completion with a completion system
+Provides debugger with command and command arguments completion using a completion system
 more powerful than irb's, compliments of {bond}[http://github.com/cldwalker/bond].
 
 == Install
 
 Install the gem with:
 
-    sudo gem install ruby-debug-completion
+    gem install debugger-completion
 
 == Setup
 
-To have ruby-debug automatically use this gem:
+To have debugger automatically use this gem:
 
-    echo "eval require 'ruby-debug/completion'" >> ~/.rdebugrc
+    echo "eval require 'debugger/completion'" >> ~/.rdebugrc
 
-Or to require in a script or application, place after your `require 'ruby-debug'` line:
+Or to require in a script or application, place after your `require 'debugger'` line:
 
-    require 'ruby-debug/completion'
+    require 'debugger/completion'
 
 Or if you like to debug with one-liners:
 
-    require 'ruby-debug/completion'; debugger
+    require 'debugger/completion'; debugger
 
 Or if using rdebug:
 
-    rdebug -r ruby-debug/completion FILE
+    rdebug -r debugger/completion FILE
 
 To start manually in environments with bond completion already setup i.e. irb:
 
-    require 'ruby-debug/completion'
+    require 'debugger/completion'
     Debugger::Completion.start
 
 == Usage
 
-Let's autocomplete instance and local variables of the current binding as well as ruby-debug
+Let's autocomplete instance and local variables of the current binding as well as debugger
 commands:
 
        186    end
        187
        188    def render
        189      body = []
-       190      require 'ruby-debug'; debugger
+       190      require 'debugger'; debugger
     => 191      unless @rows.length == 0
        192        setup_field_lengths
        193        body += render_header
@@ -78,9 +78,9 @@ Autocomplete methods of local and instance variables:
     Display all 168 possibilities? (y or n)
 
 
-Autocomplete ruby-debug command arguments:
+Autocomplete debugger command arguments:
 
-    # What info does ruby-debug provide?
+    # What info does debugger provide?
     (rdb:1) info [TAB]
     args                display             global_variables    locals              thread
     breakpoints         file                instance_variables  program             threads
@@ -119,7 +119,7 @@ Since I have autoeval on, why not autocomplete as if I'm in irb?
 Huh? Argument autocompletion?
 See {bond}[http://github.com/cldwalker/bond] for all that you can autocomplete.
 
-Can I go back to basic ruby-debug completion?
+Can I go back to basic debugger completion?
 
     # Invoke completion_toggle again
     (rdb:1)  completion_toggle
@@ -141,11 +141,6 @@ Please, can I just quit quickly without a prompt?
     (rdb:1) q [TAB]
     (rdb:1) q unconditionally
 
-== Limitations
-
-This gem doesn't have ruby-debug as a dependency since ruby-debug is split across two gems
-(ruby-debug and ruby-debug19), dependent on ruby versions. This gem will work with either one.
-
 == Bugs/Issues
 
-Please report them {on github}[http://github.com/cldwalker/ruby-debug-completion/issues].
+Please report them {on github}[http://github.com/cldwalker/debugger-completion/issues].
