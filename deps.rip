@@ -1,1 +1,2 @@
-bond >=0.3.3
+bond >=0.4.2
+debugger ~>1.1
