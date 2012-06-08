@@ -1,15 +1,15 @@
-== Description
+## Description
 
 Provides debugger with command and command arguments completion using a completion system
-more powerful than irb's, compliments of {bond}[http://github.com/cldwalker/bond].
+more powerful than irb's, compliments of [bond](http://github.com/cldwalker/bond).
 
-== Install
+## Install
 
 Install the gem with:
 
     gem install debugger-completion
 
-== Setup
+## Setup
 
 To have debugger automatically use this gem:
 
@@ -32,7 +32,7 @@ To start manually in environments with bond completion already setup i.e. irb:
     require 'debugger/completion'
     Debugger::Completion.start
 
-== Usage
+## Usage
 
 Let's autocomplete instance and local variables of the current binding as well as debugger
 commands:
@@ -42,7 +42,7 @@ commands:
        188    def render
        189      body = []
        190      require 'debugger'; debugger
-    => 191      unless @rows.length == 0
+    => 191      unless @rows.length ## 0
        192        setup_field_lengths
        193        body += render_header
        194        body += render_rows
@@ -56,9 +56,9 @@ commands:
     @rows              display            irb                restart            up
     backtrace          down               list               save               var
     body               edit               method             set                where
-    break              enable             next               show               
-    catch              eval               p                  source             
-    completion_toggle  exit               pp                 step               
+    break              enable             next               show
+    catch              eval               p                  source
+    completion_toggle  exit               pp                 step
 
     (rdb:1) ca[TAB]
     (rdb:1) catch
@@ -85,16 +85,16 @@ Autocomplete debugger command arguments:
     args                display             global_variables    locals              thread
     breakpoints         file                instance_variables  program             threads
     catch               files               line                stack               variables
- 
+
     (rdb: 1) info d[TAB]
     (rdb: 1) info display
 
     # What settings can I change?
     (rdb:1) set [TAB]
     annotate             autolist             forcestep            linetrace            width
-    args                 basename             fullpath             linetrace+           
-    autoeval             callstyle            history              listsize             
-    autoirb              debuggertesting      keep-frame-bindings  trace                
+    args                 basename             fullpath             linetrace+
+    autoeval             callstyle            history              listsize
+    autoirb              debuggertesting      keep-frame-bindings  trace
 
     (rdb:1) set d[TAB]
     (rdb:1) set debuggertesting
@@ -117,7 +117,7 @@ Since I have autoeval on, why not autocomplete as if I'm in irb?
     (rdb:1) require 'abbrev.rb'
 
 Huh? Argument autocompletion?
-See {bond}[http://github.com/cldwalker/bond] for all that you can autocomplete.
+See [bond](http://github.com/cldwalker/bond) for all that you can autocomplete.
 
 Can I go back to basic debugger completion?
 
@@ -132,15 +132,15 @@ Can I go back to basic debugger completion?
     @rows              display            irb                restart            up
     backtrace          down               list               save               var
     body               edit               method             set                where
-    break              enable             next               show               
-    catch              eval               p                  source             
-    completion_toggle  exit               pp                 step               
+    break              enable             next               show
+    catch              eval               p                  source
+    completion_toggle  exit               pp                 step
 
 Please, can I just quit quickly without a prompt?
 
     (rdb:1) q [TAB]
     (rdb:1) q unconditionally
 
-== Bugs/Issues
+## Bugs/Issues
 
-Please report them {on github}[http://github.com/cldwalker/debugger-completion/issues].
+Please report them [on github](http://github.com/cldwalker/debugger-completion/issues).

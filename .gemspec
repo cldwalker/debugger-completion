@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = ">= 1.3.6"
   s.add_dependency 'bond', '>= 0.3.3'
   s.add_dependency 'debugger', '~> 1.1'
-  s.files = Dir.glob(%w[{lib,test}/**/*.rb bin/* [A-Z]*.{txt,rdoc} ext/**/*.{rb,c} **/deps.rip]) + %w{Rakefile .gemspec}
-  s.extra_rdoc_files = ["README.rdoc", "LICENSE.txt"]
+  s.files = Dir.glob(%w[{lib,test}/**/*.rb bin/* [A-Z]*.{txt,rdoc,md} ext/**/*.{rb,c} **/deps.rip]) + %w{Rakefile .gemspec}
+  s.extra_rdoc_files = ["README.md", "LICENSE.txt"]
   s.license = 'MIT'
 end
