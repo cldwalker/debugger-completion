@@ -1,3 +1,8 @@
+## 1.0.0
+* Renamed gem to debugger-completion
+* Only to be used on debugger (and thus 1.9)
+* Dropped support for ruby-debug
+
 ## 0.2.1
 ** Ensure clean completion setup with Bond.restart
 ** Play nicely with Bond completion in ruby consoles

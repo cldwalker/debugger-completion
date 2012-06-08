@@ -4,7 +4,7 @@ require 'bond'
 module Debugger
   module Completion
     extend self
-    VERSION = '0.2.1'
+    VERSION = '1.0.0'
     COMMANDS = [ "backtrace", "break", "catch", "condition", "continue",
       "delete", "disable", "display", "down", "edit", "enable", "eval", "exit",
         "finish", "frame", "help", "info", "irb", "jump", "list", "method", "next",

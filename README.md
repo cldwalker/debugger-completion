@@ -1,7 +1,7 @@
 ## Description
 
-Provides debugger with command and command arguments completion using a completion system
-more powerful than irb's, compliments of [bond](http://github.com/cldwalker/bond).
+Provides debugger with command and command arguments completion compliments of
+[bond](http://github.com/cldwalker/bond).
 
 ## Install
 
