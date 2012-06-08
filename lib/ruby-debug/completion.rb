@@ -7,12 +7,11 @@ module Debugger
     VERSION = '0.2.1'
     COMMANDS = [ "backtrace", "break", "catch", "condition", "continue",
       "delete", "disable", "display", "down", "edit", "enable", "eval", "exit",
-        "finish", "frame", "help", "info", "irb", "list", "method", "next",
+        "finish", "frame", "help", "info", "irb", "jump", "list", "method", "next",
         "p", "pp", "ps", "putl", "quit", "reload", "restart", "save", "set",
         "show", "source", "step", "thread", "tmate", "trace", "undisplay",
         "up", "var", "where"
     ]
-    COMMANDS << ['jump'] if RUBY_VERSION >= '1.9'
 
     def start
       Bond.restart(:eval_binding=>lambda { Debugger::Completion.current_binding },
