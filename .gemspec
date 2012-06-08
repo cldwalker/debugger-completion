@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.email       = "gabriel.horner@gmail.com"
   s.homepage    = "http://github.com/cldwalker/debugger-completion"
   s.summary = "Mission: autocomplete debugger"
-  s.description =  "Provides debugger command and command arguments completion with a completion system more powerful than irb's, compliments of bond."
+  s.description =  "Provides debugger with command and command arguments completion, compliments of bond."
   s.required_rubygems_version = ">= 1.3.6"
   s.add_dependency 'bond', '>= 0.4.2'
   s.add_dependency 'debugger', '~> 1.1'
